@@ -72,10 +72,10 @@
       background-color: #45a049; /* Darker green on hover */
     }
   </style>
-  <title>Colorful Wheel of Fortune</title>
+  <title>Will You Be Rich?</title>
 </head>
 <body>
-  <h1 style="color: #ff6600;">Welcome to the Colorful Wheel of Fortune Game!</h1>
+  <h1 style="color: #ff6600;">Will You be Rich?</h1>
   <p style="color: #666666;">You start with $1,000,000 virtual money.</p>
   <label for="bidInput" style="color: #3366cc;">Enter your bidding amount:</label>
   <input type="number" id="bidInput" min="1" placeholder="Enter amount">
