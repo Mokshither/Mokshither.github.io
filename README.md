@@ -120,57 +120,6 @@
       updateVirtualMoney();
     }
 
-    // Check for bankruptcy and spin the reward wheel
-        if (virtualMoney <= 0) {
-          spinRewardWheel();
-        }
-      }
-
-      localStorage.setItem('virtualMoney', virtualMoney);
-      updateVirtualMoney();
-    }
-
-    function spinRewardWheel() {
-      const wheel = document.getElementById('wheel');
-      const randomNumber = Math.floor(Math.random() * 4) + 1;
-
-      // Adjust the wheel rotation for each reward outcome
-      let rotation;
-      switch (randomNumber) {
-        case 1:
-          virtualMoney += 0;
-          document.getElementById('result').innerHTML += `<br>Better Luck Next Time!`;
-          break;
-        case 2:
-          virtualMoney += 1000;
-          document.getElementById('result').innerHTML += `<br>You received $1,000.`;
-          break;
-        case 3:
-          virtualMoney += 0;
-          document.getElementById('result').innerHTML += `<br>Better Luck Next Time!`;
-          break;
-        case 4:
-          virtualMoney += 10000;
-          document.getElementById('result').innerHTML += `<br>Congratulations! You received $10,000.`;
-          break;
-        case 5:
-          virtualMoney += 50000;
-          document.getElementById('result').innerHTML += `<br>Congratulations! You received $50,000.`;
-          break;
-        case 6:
-          virtualMoney += 25000;
-          document.getElementById('result').innerHTML += `<br>Congratulations! You received $25,000.`;
-          break;
-        default:
-          rotation = 'rotate(0deg)';
-      }
-
-      // Display the result and update virtual money
-      wheel.style.transform = rotation;
-      localStorage.setItem('virtualMoney', virtualMoney);
-      updateVirtualMoney();
-    }
-
     // Initial setup and periodic reward
     updateVirtualMoney();
     setInterval(() => {
