@@ -205,10 +205,10 @@ use this code "<!DOCTYPE html>
       background-color: #45a049; /* Darker green on hover */
     }
   </style>
-  <title>Will You Be Rich?</title>
+  <title>Colorful Wheel of Fortune</title>
 </head>
 <body>
-  <h1 style="color: #ff6600;">Will You Be Rich?</h1>
+  <h1 style="color: #ff6600;">Welcome to the Colorful Wheel of Fortune Game!</h1>
   <p style="color: #666666;">You start with $1,000,000 virtual money.</p>
   <label for="bidInput" style="color: #3366cc;">Enter your bidding amount:</label>
   <input type="number" id="bidInput" min="1" placeholder="Enter amount">
@@ -253,14 +253,22 @@ use this code "<!DOCTYPE html>
       updateVirtualMoney();
     }
 
-    // Initial setup and periodic reward
-    updateVirtualMoney();
-    setInterval(() => {
-      virtualMoney += 1000; // Reward $1000 every hour
+    // Check for bankruptcy and spin the reward wheel
+        if (virtualMoney <= 0) {
+          spinRewardWheel();
+        }
+      }
+
       localStorage.setItem('virtualMoney', virtualMoney);
       updateVirtualMoney();
-    }, 3600000); // 1 hour in milliseconds
-  let rotation;
+    }
+
+    function spinRewardWheel() {
+      const wheel = document.getElementById('wheel');
+      const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+      // Adjust the wheel rotation for each reward outcome
+      let rotation;
       switch (randomNumber) {
         case 1:
           rotation = 'rotate(0deg)';
@@ -285,6 +293,20 @@ use this code "<!DOCTYPE html>
         default:
           rotation = 'rotate(0deg)';
       }
- </script>
+
+      // Display the result and update virtual money
+      wheel.style.transform = rotation;
+      localStorage.setItem('virtualMoney', virtualMoney);
+      updateVirtualMoney();
+    }
+
+    // Initial setup and periodic reward
+    updateVirtualMoney();
+    setInterval(() => {
+      virtualMoney += 1000; // Reward $1000 every hour
+      localStorage.setItem('virtualMoney', virtualMoney);
+      updateVirtualMoney();
+    }, 3600000); // 1 hour in milliseconds
+  </script>
 </body>
 </html>
