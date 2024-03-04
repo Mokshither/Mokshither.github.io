@@ -138,32 +138,26 @@
       let rotation;
       switch (randomNumber) {
         case 1:
-          rotation = 'rotate(0deg)';
           virtualMoney += 0;
           document.getElementById('result').innerHTML += `<br>Better Luck Next Time!`;
           break;
         case 2:
-          rotation = 'rotate(360deg)';
           virtualMoney += 1000;
           document.getElementById('result').innerHTML += `<br>You received $1,000.`;
           break;
         case 3:
-          rotation = 'rotate(315deg)';
           virtualMoney += 0;
           document.getElementById('result').innerHTML += `<br>Better Luck Next Time!`;
           break;
         case 4:
-          rotation = 'rotate(90deg)';
           virtualMoney += 10000;
           document.getElementById('result').innerHTML += `<br>Congratulations! You received $10,000.`;
           break;
         case 5:
-          rotation = 'rotate(180deg)';
           virtualMoney += 50000;
           document.getElementById('result').innerHTML += `<br>Congratulations! You received $50,000.`;
           break;
         case 6:
-          rotation = 'rotate(270deg)';
           virtualMoney += 25000;
           document.getElementById('result').innerHTML += `<br>Congratulations! You received $25,000.`;
           break;
